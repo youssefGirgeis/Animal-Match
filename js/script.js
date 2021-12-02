@@ -28,14 +28,14 @@ function hideImage() {
 const revealImage = (tiles) => {
   for (const tile of tiles) {
     tile.addEventListener("click", (e) => {
+      counter++;
       if (counter === 2) {
         console.log(counter);
         counter = 0;
-        hideImage();
+        setTimeout(hideImage, 500);
       }
       e.currentTarget.firstElementChild.classList.remove("hide");
       tile.style.backgroundColor = "#fff";
-      counter++;
     });
   }
 };
