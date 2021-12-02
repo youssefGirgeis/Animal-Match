@@ -40,8 +40,10 @@ body {
   cursor: pointer;
 }
 
-.tile > img {
-  /* visibility: hidden; */
-  /* visibility: visible; */
+.show {
+  display: inherit;
+}
+
+.hide {
   display: none;
 }
