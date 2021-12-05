@@ -11,6 +11,9 @@
 
 // const selectRandomImage = (images) => {};
 
+// play button
+const playButton = document.querySelector(".play");
+
 // counter number of tiles clicked
 let counter = 0;
 // track clicked tiles
@@ -34,6 +37,11 @@ function getImageName(imageUrl) {
 /**
  * Main Functions
  */
+
+function hidePlayButton() {
+  playButton.style.display = "none";
+}
+
 function hideImage() {
   for (const tile of tiles) {
     if (!tile.firstElementChild.classList.contains("hide")) {
@@ -73,3 +81,4 @@ const revealImage = (tiles) => {
 };
 
 revealImage(tiles);
+playButton.addEventListener("click", hidePlayButton);
