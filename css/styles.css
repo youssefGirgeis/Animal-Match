@@ -27,14 +27,6 @@ body {
 }
 
 .game {
-  /* position: relative;
-  margin: 0 auto;
-  width: 80%;
-  display: grid;
-  grid-template-columns: 100px 100px 100px 100px;
-  gap: 10px;
-  justify-content: center; */
-
   display: grid;
   grid-template-columns: 100px 100px 100px 100px;
   gap: 10px;
@@ -49,6 +41,11 @@ body {
   background: #ffc354;
   /* border: 1px solid black; */
   cursor: pointer;
+}
+
+.tile img {
+  width: 100px;
+  height: auto;
 }
 
 .show {

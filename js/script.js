@@ -38,6 +38,11 @@ function getImageName(imageUrl) {
  * Main Functions
  */
 
+function createGrid() {
+  const grid = document.createElement("div");
+  grid.classList.add("game");
+}
+
 function hidePlayButton() {
   playButton.style.display = "none";
 }
