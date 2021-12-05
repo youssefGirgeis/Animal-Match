@@ -11,6 +11,21 @@
 
 // const selectRandomImage = (images) => {};
 
+// facts about each fruit
+fruitFacts = {
+  apple: "2,500 varieties of apples are grown in the United States.",
+  oarnge: "Oranges are the largest citrus fruit in the world.",
+  lemon: "Lemons are native to Asia",
+  pineapple:
+    "Only one pineapple is produced by a single plant in a single season",
+  kiwi: "The Average Kiwi fruit has 46 calories",
+  strawberry: "The average strawberry has 200 seeds.",
+  watermelon:
+    "Watermelons are 92% water, making them a perfect refresher for those hot summer months.",
+  banana:
+    "There are more than 1000 varieties of bananas grown in over 150 countries",
+};
+
 // play button
 const playButton = document.querySelector(".play");
 
@@ -25,7 +40,7 @@ const tiles = document.getElementsByClassName("tile");
 // Helper functions
 function getImageName(imageUrl) {
   return imageUrl.substring(
-    imageUrl.lastIndexOf("/"),
+    imageUrl.lastIndexOf("/") + 1,
     imageUrl.lastIndexOf(".")
   );
 }
@@ -62,6 +77,11 @@ function checkMatch(clickedTiles) {
   return firstImageName.toLowerCase() === secondImageName.toLowerCase();
 }
 
+function displayFact(fruitName) {
+  const fact = document.querySelector(".fact");
+  fact.textContent = fruitFacts[fruitName];
+}
+
 function removeTiles() {}
 
 const revealImage = (tiles) => {
@@ -72,7 +92,8 @@ const revealImage = (tiles) => {
       if (counter === 2) {
         counter = 0;
         // check if the images match
-        if (checkMatch(clickedTiles)) console.log("match");
+        if (checkMatch(clickedTiles))
+          displayFact(getImageName(clickedTiles[0].firstElementChild.src));
         // hide image if no match after 0.5s
         else setTimeout(hideImage, 500);
 
