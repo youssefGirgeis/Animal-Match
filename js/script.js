@@ -14,7 +14,7 @@
 // facts about each fruit
 fruitFacts = {
   apple: "2,500 varieties of apples are grown in the United States.",
-  oarnge: "Oranges are the largest citrus fruit in the world.",
+  orange: "Oranges are the largest citrus fruit in the world.",
   lemon: "Lemons are native to Asia",
   pineapple:
     "Only one pineapple is produced by a single plant in a single season",
@@ -90,6 +90,7 @@ function displayFact(fruitName) {
 }
 
 function removeTiles(clickedTiles) {
+  console.log(clickedTiles);
   clickedTiles[0].style.visibility = "hidden";
   clickedTiles[1].style.visibility = "hidden";
 }
@@ -104,7 +105,8 @@ const revealImage = (tiles) => {
         // check if the images match
         if (checkMatch(clickedTiles)) {
           displayFact(getImageName(clickedTiles[0].firstElementChild.src));
-          removeTiles(clickedTiles);
+          // removeTiles(clickedTiles);
+          setTimeout(removeTiles, 600, clickedTiles);
         }
 
         // hide image if no match after 0.5s
