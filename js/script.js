@@ -89,7 +89,10 @@ function displayFact(fruitName) {
   fact.textContent = fruitFacts[fruitName];
 }
 
-function removeTiles() {}
+function removeTiles(clickedTiles) {
+  clickedTiles[0].style.visibility = "hidden";
+  clickedTiles[1].style.visibility = "hidden";
+}
 
 const revealImage = (tiles) => {
   for (const tile of tiles) {
@@ -99,10 +102,13 @@ const revealImage = (tiles) => {
       if (counter === 2) {
         counter = 0;
         // check if the images match
-        if (checkMatch(clickedTiles))
+        if (checkMatch(clickedTiles)) {
           displayFact(getImageName(clickedTiles[0].firstElementChild.src));
+          removeTiles(clickedTiles);
+        }
+
         // hide image if no match after 0.5s
-        else setTimeout(hideImage, 500);
+        else setTimeout(hideImage, 400);
 
         // reset this array for the next try
         clickedTiles = [];
