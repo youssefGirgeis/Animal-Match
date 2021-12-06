@@ -49,13 +49,20 @@ function getImageName(imageUrl) {
  * End of Helper functions
  */
 
-/**
- * Main Functions
- */
+// Main Functions
+// --------------
 
+/**
+ * create tiles randomly
+ */
 function createGrid() {
-  const grid = document.createElement("div");
-  grid.classList.add("game");
+  for (const tile of tiles) {
+    // the order of the tile will determine where to place
+    // the tile on the grid. If two tiles have the same
+    // order, the one that comes first in html will be displayed
+    // first
+    tile.style.order = Math.floor(Math.random() * 16);
+  }
 }
 
 function hidePlayButton() {
@@ -105,6 +112,6 @@ const revealImage = (tiles) => {
     });
   }
 };
-
+createGrid();
 revealImage(tiles);
 playButton.addEventListener("click", hidePlayButton);
